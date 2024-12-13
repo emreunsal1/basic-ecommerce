@@ -1,0 +1,13 @@
+.main-page {
+  display: flex;
+  gap: 35px;
+  min-width: 1306px;
+  max-width: 1306px;
+  margin: 33px auto 0 auto;
+
+  .right-wrapper {
+    .basket-summary {
+      margin-top: 33px;
+    }
+  }
+}

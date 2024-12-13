@@ -7,6 +7,7 @@ $white: #ffff;
 $gray: #c4c4c4;
 
 //pages
+@import "./pages/main.scss";
 @import "./pages/productDetail.scss";
 
 //components
@@ -19,6 +20,10 @@ $gray: #c4c4c4;
 @import "./components/counter.scss";
 @import "./components/search.scss";
 @import "./components/paginationBar.scss";
+@import "./components/basket.scss";
+@import "./components/basket-item.scss";
+@import "./components/basket-summary.scss";
+@import "./components/loading.scss";
 
 *,
 *::before,

@@ -1,9 +1,22 @@
+.not-found-text {
+  width: 810px;
+  font-size: 70px;
+  padding: 30px;
+  font-weight: bold;
+  color: $gray;
+  text-align: center;
+  span {
+    display: block;
+    color: $blue;
+  }
+}
+
 .list-wrapper {
-  width: 100%;
+  width: 810px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 26px 30px;
-  padding: 16px;
+  padding: 0 16px 16px 16px;
 
   .list-item {
   }

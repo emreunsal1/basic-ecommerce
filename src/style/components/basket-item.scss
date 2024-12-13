@@ -1,0 +1,22 @@
+.basket-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  .basket-item-content {
+    width: 100px;
+    .basket-item-title {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12px;
+    }
+    .basket-item-price {
+      font-size: 10px;
+      font-weight: 500;
+      color: $blue;
+    }
+  }
+  .counter {
+  }
+}
