@@ -31,7 +31,7 @@ export function SearchContext({ children }) {
     let filteredProducts = products;
 
     if (searchText.length > 0) {
-      filterProducts = filteredProducts.filter((product) =>
+      filteredProducts = filteredProducts.filter((product) =>
         product.name.toLowerCase().includes(searchText.toLowerCase())
       );
     }

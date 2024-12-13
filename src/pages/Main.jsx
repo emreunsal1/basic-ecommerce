@@ -6,10 +6,10 @@ import List from "../components/List";
 import { useSearchContext } from "../context/searchContext";
 
 export default function Main() {
-  const { products } = useSearchContext();
+  const { products, totalPage } = useSearchContext();
   return (
     <div>
-      <List data={products} />
+      <List data={products} totalPage={totalPage} />
     </div>
   );
 }

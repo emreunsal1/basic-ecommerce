@@ -10,8 +10,8 @@ function App() {
   return (
     <div>
       <BasketContext>
-        <Header />
         <SearchContext>
+          <Header />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Main />} />

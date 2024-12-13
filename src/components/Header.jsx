@@ -3,9 +3,11 @@ import Search, { SEARCH_VARIANTS } from "./Search";
 import PortfeilLogo from "../assets/Portfeil.svg";
 import ProfileLogo from "../assets/Profile.svg";
 import HeaderMenuItem from "./HeaderMenuItem";
+import { useSearchContext } from "../context/searchContext";
 
 export default function Header() {
-  const [searchText, setSearchText] = useState("");
+  const { setSearchText, searchText } = useSearchContext();
+
   return (
     <div className="header">
       <div className="header-wrapper">
