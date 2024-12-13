@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
-import { fetchProducts } from "../service/products";
+import { useProductContext } from "./productContext";
 
-const Context = createContext({});
+const Context = createContext({
+  products: [],
+});
 
 const SORT_TYPE = {
   OLD_TO_NEW: "OLD_TO_NEW",
@@ -12,20 +14,11 @@ const SORT_TYPE = {
 };
 
 export function SearchContext({ children }) {
-  const [products, setProducts] = useState([]);
-  const [brands, setBrands] = useState([]);
-  const [models, setModels] = useState([]);
+  const { products } = useProductContext();
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedModels, setSelectedModels] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [sortType, setSortType] = useState(SORT_TYPE.OLD_TO_NEW);
-
-  const getProducts = async () => {
-    const response = await fetchProducts();
-    setProducts(response.products);
-    setBrands(response.brands);
-    setModels(response.models);
-  };
 
   const filterProducts = () => {
     let filteredProducts = products;
@@ -52,40 +45,34 @@ export function SearchContext({ children }) {
 
   const sortProducts = (products) => {
     return products.sort((a, b) => {
-      if (sortType == SORT_TYPE.NEW_TO_OLD) {
-        return (
-          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        );
-      }
-      if (sortType == SORT_TYPE.OLD_TO_NEW) {
+      if (sortType === SORT_TYPE.NEW_TO_OLD) {
         return (
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         );
       }
-      if (sortType == SORT_TYPE.PRICE_HIGH_TO_LOW) {
-        return Number(a.price) - Number(b.price);
+      if (sortType === SORT_TYPE.OLD_TO_NEW) {
+        return (
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        );
       }
-      if (sortType == SORT_TYPE.PRICE_LOW_TO_HIGH) {
+      if (sortType === SORT_TYPE.PRICE_HIGH_TO_LOW) {
         return Number(b.price) - Number(a.price);
       }
+      if (sortType === SORT_TYPE.PRICE_LOW_TO_HIGH) {
+        return Number(a.price) - Number(b.price);
+      }
+      return 0;
     });
   };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   return (
     <Context.Provider
       value={{
-        products: sortProducts(filterProducts()),
-        brands,
-        models,
+        searchedProducts: sortProducts(filterProducts()),
         selectedBrands,
         selectedModels,
         sortType,
         searchText,
-        setProducts,
         setSelectedBrands,
         setSelectedModels,
         setSearchText,

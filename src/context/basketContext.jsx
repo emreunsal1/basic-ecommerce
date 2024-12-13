@@ -2,11 +2,15 @@ import React, { createContext, useContext } from "react";
 import { useState } from "react";
 import { STORAGE } from "../utils/browserStorage";
 import { useEffect } from "react";
+import { useProductContext } from "./productContext";
 
-const Context = createContext({});
+const Context = createContext({
+  basket: [],
+});
 
 export function BasketContext({ children }) {
   const [basket, setBasket] = useState([]);
+  const { products, isLoading } = useProductContext();
 
   const addItem = (productId) => {
     const storageBasket = JSON.parse(STORAGE.getLocal("basket"));
@@ -54,10 +58,19 @@ export function BasketContext({ children }) {
     setBasket(JSON.parse(storageBasket));
   }, []);
 
+  const totalPrice = basket.reduce((prev, item) => {
+    if (!isLoading) {
+      const foundProduct = products.find((_item) => _item.id === item.id);
+      prev += foundProduct.price * item.count;
+      return prev;
+    }
+  }, 0);
+
   return (
     <Context.Provider
       value={{
         basket,
+        totalPrice,
         addItem,
         removeItem,
         updateItemCount,
