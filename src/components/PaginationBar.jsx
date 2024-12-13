@@ -8,6 +8,9 @@ export default function PaginationBar({
   currentPage = 0,
   onChange = () => {},
 }) {
+  if (totalPage < 2) {
+    return null;
+  }
   const getPaginationItems = () => {
     const paginationItems = [];
 

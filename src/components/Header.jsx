@@ -4,8 +4,10 @@ import PortfeilLogo from "../assets/Portfeil.svg";
 import ProfileLogo from "../assets/Profile.svg";
 import HeaderMenuItem from "./HeaderMenuItem";
 import { useSearchContext } from "../context/searchContext";
+import { useBasketContext } from "../context/basketContext";
 
 export default function Header() {
+  const { totalPrice } = useBasketContext();
   const { setSearchText, searchText } = useSearchContext();
 
   return (
@@ -25,7 +27,7 @@ export default function Header() {
         <div className="menu-wrapper">
           <HeaderMenuItem
             logo={PortfeilLogo}
-            content={"117.000₺"}
+            content={totalPrice + "₺"}
             className="portfeil"
           />
           <HeaderMenuItem
