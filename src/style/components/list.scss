@@ -1,0 +1,10 @@
+.list-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Her satırda 4 sütun */
+  gap: 26px 30px;
+  padding: 16px;
+
+  .list-item {
+  }
+}

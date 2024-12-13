@@ -2,26 +2,31 @@
   width: 100%;
   height: 302px;
   padding: 10px;
-  .image-wrapper {
-    width: 100%;
-    height: 150px;
-    background-color: $gray;
-    img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .content {
+    .image-wrapper {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 150px;
+      background-color: $gray;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
-  }
-  .name {
-    font-size: 15px;
-    font-weight: 500;
-    color: $blue;
-    margin-top: 15px;
-  }
-  .price {
-    color: $black;
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 15px 0px;
+    .price {
+      margin-top: 15px;
+      color: $blue;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .name {
+      font-size: 15px;
+      font-weight: 500;
+      color: $black;
+      margin-top: 15px;
+    }
   }
 }
