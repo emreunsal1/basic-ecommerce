@@ -1,8 +1,22 @@
 import React from "react";
+import classNames from "classnames";
 
-export default function Button(
+const SIZE = {
+  SMALL: "small",
+  MEDIUM: "medium",
+  LARGE: "large",
+};
+
+export default function Button({
   children,
-  { text, htmlType, isActive, onClick }
-) {
-  return <div></div>;
+  disabled = false,
+  size = SIZE.MEDIUM,
+  onClick = () => {},
+}) {
+  const buttonClassName = classNames("button", size, { disabled: disabled });
+  return (
+    <div className={buttonClassName} onClick={() => onClick()}>
+      {children}
+    </div>
+  );
 }
