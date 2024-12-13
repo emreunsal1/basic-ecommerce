@@ -8,23 +8,72 @@ export default function PaginationBar({
   currentPage = 0,
   onChange = () => {},
 }) {
+  const getPaginationItems = () => {
+    const paginationItems = [];
+
+    paginationItems.push(0);
+
+    if (currentPage > 2) {
+      paginationItems.push("dots-left");
+    }
+
+    for (
+      let i = Math.max(1, currentPage - 1);
+      i <= Math.min(totalPage - 2, currentPage + 1);
+      i++
+    ) {
+      paginationItems.push(i);
+    }
+
+    if (currentPage < totalPage - 3) {
+      paginationItems.push("dots-right");
+    }
+    paginationItems.push(totalPage - 1);
+    return paginationItems;
+  };
+
+  const changePageHandler = (newPage) => {
+    if (newPage >= 0 && newPage < totalPage) {
+      onChange(newPage);
+    }
+  };
+
   return (
     <div className="pagination-bar-wrapper">
-      <div className="left-icon-wrapper">
-        <img src={LeftIcon} />
+      <div
+        className={classNames("left-icon-wrapper", {
+          disabled: currentPage <= 0,
+        })}
+        onClick={() => changePageHandler(currentPage - 1)}
+      >
+        <img src={LeftIcon} alt="Previous" />
       </div>
-      {Array.from(Array(totalPage).keys()).map((page) => (
-        <div
-          className={classNames("pagination-item", {
-            active: currentPage == page,
-          })}
-          onClick={() => onChange(page)}
-        >
-          {page + 1}
-        </div>
-      ))}
-      <div className="right-icon-wrapper">
-        <img src={RightIcon} />
+
+      {getPaginationItems().map((item, index) =>
+        item === "dots-left" || item === "dots-right" ? (
+          <div key={index} className="pagination-item dots">
+            ...
+          </div>
+        ) : (
+          <div
+            key={index}
+            className={classNames("pagination-item", {
+              active: currentPage === item,
+            })}
+            onClick={() => onChange(item)}
+          >
+            {item + 1}
+          </div>
+        )
+      )}
+
+      <div
+        onClick={() => changePageHandler(currentPage + 1)}
+        className={classNames("right-icon-wrapper", {
+          disabled: currentPage + 1 >= totalPage,
+        })}
+      >
+        <img src={RightIcon} alt="Next" />
       </div>
     </div>
   );

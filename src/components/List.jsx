@@ -17,24 +17,26 @@ export default function List({ data }) {
   };
 
   return (
-    <div className="list-wrapper">
-      {paginate().map((item) => {
-        return (
-          <div className="list-item">
-            <Card
-              id={item.id}
-              price={item.price}
-              image={item.image}
-              name={item.name}
-            />
-          </div>
-        );
-      })}
+    <>
+      <div className="list-wrapper">
+        {paginate().map((item) => {
+          return (
+            <div className="list-item">
+              <Card
+                id={item.id}
+                price={item.price}
+                image={item.image}
+                name={item.name}
+              />
+            </div>
+          );
+        })}
+      </div>
       <PaginationBar
         onChange={(current) => setCurrentPage(current)}
         totalPage={totalPage}
         currentPage={currentPage}
       />
-    </div>
+    </>
   );
 }
