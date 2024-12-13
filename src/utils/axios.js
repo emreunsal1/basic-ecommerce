@@ -1,7 +1,4 @@
+import axios from "axios";
 
 
-const instance = axios.create({
-  baseURL: 'https://some-domain.com/api/',
-  timeout: 1000,
-  headers: {'X-Custom-Header': 'foobar'}
-});
+export const instance = axios.create({baseURL: 'https://5fc9346b2af77700165ae514.mockapi.io/products'});
