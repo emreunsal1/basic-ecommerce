@@ -1,0 +1,41 @@
+.radio-input-wrapper {
+  .radio-item {
+    display: flex;
+    align-items: center;
+    input {
+      appearance: none;
+      -webkit-appearance: none;
+      position: relative;
+      margin-right: 9px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid $blue;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+      background-color: white;
+
+      &::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $blue;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.2s ease-in-out;
+      }
+      &:checked::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    label {
+      line-height: 17.07px;
+      font-size: 14px;
+      font-weight: 400;
+      color: $black;
+    }
+  }
+}

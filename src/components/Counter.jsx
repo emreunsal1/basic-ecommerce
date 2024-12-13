@@ -1,7 +1,17 @@
-import React from 'react'
+import React from "react";
 
-export default function Counter() {
+function Counter({ count = 0, onChange = () => {} }) {
   return (
-    <div>Counter</div>
-  )
+    <div className="counter">
+      <div className="counter-action" onClick={() => onChange(count - 1)}>
+        -
+      </div>
+      <div className="counter-number">{count}</div>
+      <div className="counter-action" onClick={() => onChange(count + 1)}>
+        +
+      </div>
+    </div>
+  );
 }
+
+export default Counter;

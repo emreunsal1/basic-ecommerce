@@ -1,0 +1,31 @@
+.counter {
+  display: flex;
+  align-items: center;
+
+  .counter-action {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 19.5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #626b8b;
+  }
+  .counter-number {
+    width: 28px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color: $blue, $alpha: 1);
+    font-size: 18px;
+    line-height: 21.98px;
+    color: #fff;
+  }
+}

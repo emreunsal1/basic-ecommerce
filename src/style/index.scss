@@ -12,8 +12,12 @@ $gray: #c4c4c4;
 //components
 @import "./components/card.scss";
 @import "./components/header.scss";
+@import "./components/header-menu-item.scss";
 @import "./components/list.scss";
 @import "./components/button.scss";
+@import "./components/radioInput.scss";
+@import "./components/counter.scss";
+@import "./components/search.scss";
 
 *,
 *::before,

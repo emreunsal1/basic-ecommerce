@@ -1,0 +1,27 @@
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .menu-item-logo {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+  }
+  .menu-item-content {
+    font-size: 15px;
+    line-height: 19.5px;
+    color: #fff;
+  }
+
+  &.portfeil {
+    img {
+      height: 18px;
+    }
+  }
+  &.profile {
+    img {
+      height: 24px;
+    }
+  }
+}
