@@ -1,0 +1,26 @@
+//variables
+$backgrounColor: #f9f9f9;
+$blue: #2a59fe;
+$black: #000000;
+$white: #ffff;
+$gray: #c4c4c4;
+
+//pages
+@import "./pages/productDetail.scss";
+
+//components
+@import "./components/card.scss";
+@import "./components/header.scss";
+@import "./components/list.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $backgrounColor;
+}
