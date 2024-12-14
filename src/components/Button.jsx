@@ -14,7 +14,8 @@ export default function Button({
   onClick = () => {},
 }) {
   const buttonClassName = classNames("button", size, { disabled: disabled });
-  const onClickHandler = () => {
+  const onClickHandler = (e) => {
+    e.stopPropagation();
     if (disabled) {
       return;
     }
