@@ -9,9 +9,10 @@ export default function RadioInput({
   name,
 }) {
   return (
-    <div onChange={(e) => onChange(e)} className="radio-input-wrapper">
+    <div className="radio-input-wrapper">
       <div className="radio-item" key={value}>
         <input
+          onChange={(e) => onChange(e)}
           defaultChecked={checked | false}
           disabled={disabled}
           type="radio"

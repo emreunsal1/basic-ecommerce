@@ -31,12 +31,12 @@ export function SearchContext({ children }) {
 
     if (selectedModels.length > 0) {
       filteredProducts = filteredProducts.filter((product) =>
-        selectedModels.includes(product.model)
+        selectedModels.includes(product.model.toLowerCase())
       );
     }
     if (selectedBrands.length > 0) {
       filteredProducts = filteredProducts.filter((product) =>
-        selectedBrands.includes(product.brand)
+        selectedBrands.includes(product.brand.toLowerCase())
       );
     }
 

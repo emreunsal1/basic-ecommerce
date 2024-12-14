@@ -9,7 +9,7 @@ export default function CheckBoxInput({
   onChange = () => {},
 }) {
   return (
-    <div onChange={(e) => onChange(e)} className="checkbox-input-wrapper">
+    <div onChange={(e) => onChange(e)} className="checkbox-wrapper">
       <div className="checkbox-item" key={value}>
         <input
           defaultChecked={checked | false}

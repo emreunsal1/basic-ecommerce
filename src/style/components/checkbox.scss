@@ -1,0 +1,44 @@
+.checkbox-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 400;
+  color: $black;
+  line-height: 17.07px;
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid $blue;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+
+    &:checked {
+      background-color: $blue;
+      border-color: $blue;
+
+      &::after {
+        content: "✔";
+        font-size: 12px;
+        color: #fff;
+      }
+    }
+
+    &:hover {
+      border-color: #005bb5;
+    }
+  }
+}
