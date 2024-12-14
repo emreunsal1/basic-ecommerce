@@ -6,7 +6,11 @@ export default function Card({ data, onClick = (data) => {} }) {
   const { addItem } = useBasketContext();
 
   return (
-    <div className="card-wrapper" onClick={() => onClick(data)} id={data.id}>
+    <div
+      className="card-wrapper"
+      onClick={() => onClick(data)}
+      data-testid={data.id}
+    >
       <div className="content">
         <div className="image-wrapper">
           {data.image && <img src={data.image} />}

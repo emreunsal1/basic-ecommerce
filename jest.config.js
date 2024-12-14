@@ -8,6 +8,7 @@ export default {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
     "\\.(jpg|jpeg|png|gif|svg)$": "jest-transform-stub",
   },
+  setupFilesAfterEnv: ["./src/tests/setup.js"],
   testEnvironment: "jest-environment-jsdom",
   transformIgnorePatterns: ["node_modules"],
   testPathIgnorePatterns: ["node_modules"], // Ignore node_modules and dist folders

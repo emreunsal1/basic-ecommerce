@@ -14,8 +14,14 @@ export default function Button({
   onClick = () => {},
 }) {
   const buttonClassName = classNames("button", size, { disabled: disabled });
+  const onClickHandler = () => {
+    if (disabled) {
+      return;
+    }
+    onClick();
+  };
   return (
-    <div className={buttonClassName} onClick={() => onClick()}>
+    <div className={buttonClassName} onClick={onClickHandler}>
       {children}
     </div>
   );
