@@ -9,21 +9,19 @@ import { ProductContext } from "./context/productContext";
 
 function App() {
   return (
-    <div>
-      <ProductContext>
-        <BasketContext>
-          <SearchContext>
-            <BrowserRouter>
-              <Header />
-              <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="/detail/:id" element={<ProductDetail />} />
-              </Routes>
-            </BrowserRouter>
-          </SearchContext>
-        </BasketContext>
-      </ProductContext>
-    </div>
+    <ProductContext>
+      <BasketContext>
+        <SearchContext>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/detail/:id" element={<ProductDetail />} />
+            </Routes>
+          </BrowserRouter>
+        </SearchContext>
+      </BasketContext>
+    </ProductContext>
   );
 }
 

@@ -16,3 +16,25 @@
   .left-wrapper {
   }
 }
+@media (max-width: 768px) {
+  .main-page {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    .right-wrapper {
+      margin: 0 auto;
+      width: 60%;
+      margin-bottom: 20px;
+      .basket-summary {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+    .left-wrapper {
+      width: 60%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  }
+}
