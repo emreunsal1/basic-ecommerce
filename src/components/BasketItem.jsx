@@ -12,9 +12,9 @@ export default function BasketItem({ item }) {
   return (
     <div className="basket-item">
       <div className="basket-item-content">
-        <div className="basket-item-title">{foundProduct.name}</div>
+        <div className="basket-item-title">{foundProduct?.name}</div>
         <div className="basket-item-price">
-          {foundProduct.price * item.count} ₺
+          {foundProduct?.price * item.count} ₺
         </div>
       </div>
       <Counter

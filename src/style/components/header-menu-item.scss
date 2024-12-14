@@ -2,12 +2,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
+
   .menu-item-logo {
     width: 24px;
     height: 24px;
     display: flex;
     align-items: center;
   }
+
   .menu-item-content {
     font-size: 15px;
     line-height: 19.5px;
@@ -19,9 +21,77 @@
       height: 18px;
     }
   }
+
   &.profile {
     img {
       height: 24px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .menu-item-content {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .menu-item-logo {
+      width: 20px;
+      height: 20px;
+    }
+
+    &.portfeil img {
+      height: 16px;
+    }
+
+    &.profile img {
+      height: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 5px;
+
+    .menu-item-content {
+      font-size: 13px;
+      line-height: 17px;
+    }
+
+    .menu-item-logo {
+      width: 18px;
+      height: 18px;
+    }
+
+    &.portfeil img {
+      height: 14px;
+    }
+
+    &.profile img {
+      height: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .menu-item-content {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    .menu-item-logo {
+      width: 16px;
+      height: 16px;
+    }
+
+    &.portfeil img {
+      height: 12px;
+    }
+
+    &.profile img {
+      height: 16px;
     }
   }
 }

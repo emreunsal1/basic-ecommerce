@@ -13,11 +13,11 @@ function App() {
       <ProductContext>
         <BasketContext>
           <SearchContext>
-            <Header />
             <BrowserRouter>
+              <Header />
               <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="detail" element={<ProductDetail />} />
+                <Route path="/detail/:id" element={<ProductDetail />} />
               </Routes>
             </BrowserRouter>
           </SearchContext>

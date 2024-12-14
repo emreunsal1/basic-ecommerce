@@ -7,7 +7,7 @@ export default function Basket() {
 
   return (
     <div className="basket">
-      {basket.map((item) => (
+      {basket?.map((item) => (
         <BasketItem item={item} key={item.id} />
       ))}
     </div>

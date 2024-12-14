@@ -23,3 +23,8 @@ export const fetchProducts = async () => {
     products: result.products,
   };
 };
+
+export const fetchProductById = async (id) => {
+  const response = await instance.get(id);
+  return response.data;
+};

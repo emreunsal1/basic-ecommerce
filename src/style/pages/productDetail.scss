@@ -1,0 +1,135 @@
+.pdp-container {
+  width: 100%;
+  padding-top: 33px;
+  display: flex;
+  justify-content: center;
+
+  .pdp-body {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: $white;
+    width: 1061px;
+
+    .image-wrapper {
+      margin-right: 30px;
+      height: 422px;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+
+    .content {
+      .name {
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 24px;
+        color: $black;
+      }
+
+      .price {
+        color: $blue;
+        margin-bottom: 50px;
+        font-weight: 500;
+        font-size: 24px;
+      }
+
+      .button-wrapper {
+        margin-bottom: 20px;
+      }
+
+      .description {
+        font-weight: 400;
+        font-size: 18px;
+      }
+    }
+  }
+  .basket-wrapper {
+    margin-left: 33px;
+    .basket-content {
+      margin-bottom: 33px;
+    }
+    .summary {
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .pdp-body {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .image-wrapper {
+        margin-right: 0;
+        height: auto;
+        margin-bottom: 20px;
+
+        img {
+          height: auto;
+          max-width: 100%;
+        }
+      }
+
+      .content {
+        .name {
+          font-size: 20px;
+        }
+
+        .price {
+          font-size: 20px;
+          margin-bottom: 30px;
+        }
+
+        .description {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pdp-body {
+      padding: 15px;
+
+      .content {
+        .name {
+          font-size: 18px;
+        }
+
+        .price {
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .pdp-body {
+      padding: 10px;
+
+      .content {
+        .name {
+          font-size: 16px;
+        }
+
+        .price {
+          font-size: 16px;
+          margin-bottom: 15px;
+        }
+
+        .description {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

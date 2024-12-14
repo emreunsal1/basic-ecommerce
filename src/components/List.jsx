@@ -2,12 +2,14 @@ import React from "react";
 import Card from "./Card";
 import PaginationBar from "./PaginationBar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PAGE_COUNT = 12;
 
 export default function List({ data }) {
   const [currentPage, setCurrentPage] = useState(0);
   const totalPage = Math.ceil(data.length / PAGE_COUNT);
+  const navigate = useNavigate();
 
   const paginate = () => {
     const startIndex = currentPage * PAGE_COUNT;
@@ -31,10 +33,8 @@ export default function List({ data }) {
             return (
               <div className="list-item" key={item.id}>
                 <Card
-                  id={item.id}
-                  price={item.price}
-                  image={item.image}
-                  name={item.name}
+                  data={item}
+                  onClick={() => navigate(`/detail/${item.id}`)}
                 />
               </div>
             );

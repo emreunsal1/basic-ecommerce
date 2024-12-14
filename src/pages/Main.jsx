@@ -66,7 +66,6 @@ export default function Main() {
       <div className="middle-wrapper">
         <List data={searchedProducts} />
       </div>
-
       <div className="right-wrapper">
         <Basket />
         <BasketSummary />

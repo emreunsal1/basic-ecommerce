@@ -5,15 +5,19 @@ import ProfileLogo from "../assets/Profile.svg";
 import HeaderMenuItem from "./HeaderMenuItem";
 import { useSearchContext } from "../context/searchContext";
 import { useBasketContext } from "../context/basketContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const { totalPrice } = useBasketContext();
   const { setSearchText, searchText } = useSearchContext();
+  const navigate = useNavigate();
 
   return (
     <div className="header">
       <div className="header-wrapper">
-        <div className="logo-wrapper">Eteration</div>
+        <div className="logo-wrapper" onClick={() => navigate("/")}>
+          Eteration
+        </div>
         <div className="search-wrapper">
           <Search
             value={searchText}
