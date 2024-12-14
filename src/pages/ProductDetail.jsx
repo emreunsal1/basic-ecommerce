@@ -6,22 +6,31 @@ import { useState } from "react";
 import Basket from "../components/Basket";
 import BasketSummary from "../components/BasketSummary";
 import { useBasketContext } from "../context/basketContext";
+import { useProductContext } from "../context/productContext";
+import Loading from "../components/Loading";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const { addItem } = useBasketContext();
   const [product, setProduct] = useState(null);
+  const { getProductById, isLoading } = useProductContext();
+
   const getProduct = async () => {
-    const response = await fetchProductById(id);
+    const response = await getProductById(id);
     setProduct(response);
   };
+
   useEffect(() => {
     getProduct();
   }, []);
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div className="pdp-container">
-      {product && (
+      {product && !isLoading && (
         <div className="pdp-body">
           <div className="image-wrapper">
             <img src={product.image} loading="lazy" />

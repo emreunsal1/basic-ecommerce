@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-import { fetchProducts } from "../service/products";
+import { fetchProductById, fetchProducts } from "../service/products";
 
 const Context = createContext({
   products: [],
@@ -22,6 +22,11 @@ export function ProductContext({ children }) {
     setBrands(response.brands);
     setModels(response.models);
   };
+  const getProductById = async (id) => {
+    const response = await fetchProductById(id);
+    setIsLoading(false);
+    return response;
+  };
 
   useEffect(() => {
     getProducts();
@@ -34,6 +39,7 @@ export function ProductContext({ children }) {
         brands,
         models,
         isLoading,
+        getProductById,
       }}
     >
       {children}

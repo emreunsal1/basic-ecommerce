@@ -59,11 +59,9 @@ export function BasketContext({ children }) {
   }, []);
 
   const totalPrice = basket.reduce((prev, item) => {
-    if (!isLoading) {
-      const foundProduct = products.find((_item) => _item.id === item.id);
-      prev += foundProduct.price * item.count;
-      return prev;
-    }
+    const foundProduct = products.find((_item) => _item.id === item.id);
+    prev += foundProduct?.price * item.count;
+    return prev;
   }, 0);
 
   return (
